@@ -4,7 +4,7 @@
 <!-- Login Background -->
 <div id="login-background">
     <!-- For best results use an image with a resolution of 2560x400 pixels (prefer a blurred image for smaller file size) -->
-    <img src="img/placeholders/headers/login_header.jpg" alt="Login Background" class="animation-pulseSlow">
+    <img src="<?=base_url();?>assets/img/placeholders/headers/login_header.jpg" alt="Login Background" class="animation-pulseSlow">
 </div>
 <!-- END Login Background -->
 
@@ -19,7 +19,8 @@
     <!-- Login Block -->
     <div class="block push-bit">
         <!-- Login Form -->
-        <form action="index.php" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
+        <?php echo validation_errors(); ?>
+        <?php echo form_open('login', 'class="form-horizontal form-bordered form-control-borderless" id="form-login"'); ?>
             <div class="form-group">
                 <div class="col-xs-12">
                     <div class="input-group">
@@ -53,7 +54,7 @@
                     <a href="javascript:void(0)" id="link-register-login"><small>Create a new account</small></a>
                 </div>
             </div>
-        </form>
+            <?php echo form_close();?>
         <!-- END Login Form -->
 
         <!-- Reminder Form -->
@@ -173,7 +174,7 @@
 <?php include 'inc/template_scripts.php'; ?>
 
 <!-- Load and execute javascript code used only in this page -->
-<script src="js/pages/login.js"></script>
+<script src="<?=base_url();?>assets/js/pages/login.js"></script>
 <script>$(function(){ Login.init(); });</script>
 
 <?php include 'inc/template_end.php'; ?>

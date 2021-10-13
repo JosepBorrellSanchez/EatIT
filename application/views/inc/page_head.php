@@ -106,73 +106,73 @@
                         <li>
                             <a href="javascript:void(0)" class="chat-user-online">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar12.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar12.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class="chat-user-online">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar15.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar15.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class="chat-user-online">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar10.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar10.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class="chat-user-online">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar4.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar4.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class="chat-user-away">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar7.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar7.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class="chat-user-away">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" class="chat-user-busy">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar16.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar16.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar1.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar1.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar4.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar4.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar3.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar3.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar13.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar13.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
                                 <span></span>
-                                <img src="img/placeholders/avatars/avatar5.jpg" alt="avatar" class="img-circle">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar5.jpg" alt="avatar" class="img-circle">
                             </a>
                         </li>
                     </ul>
@@ -185,8 +185,8 @@
                             <button id="chat-talk-close-btn" class="btn btn-xs btn-default pull-right">
                                 <i class="fa fa-times"></i>
                             </button>
-                            <img src="img/placeholders/avatars/avatar5.jpg" alt="avatar" class="img-circle pull-left">
-                            <strong>John</strong> Doe
+                            <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar5.jpg" alt="avatar" class="img-circle pull-left">
+                            <strong><?php echo $nom?></strong>
                         </div>
                         <!-- END Chat Info -->
 
@@ -224,7 +224,7 @@
                         </div>
                         <div class="alert alert-success alert-alt">
                             <small>3 hours ago</small><br>
-                            <i class="fa fa-plus fa-fw"></i> <a href="page_ready_user_profile.php"><strong>John Doe</strong></a> would like to become friends!<br>
+                            <i class="fa fa-plus fa-fw"></i> <a href="page_ready_user_profile.php"><strong><?php echo $nom?></strong></a> would like to become friends!<br>
                             <a href="javascript:void(0)" class="btn btn-xs btn-primary"><i class="fa fa-check"></i> Accept</a>
                             <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-times"></i> Ignore</a>
                         </div>
@@ -286,16 +286,16 @@
                     <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
                         <div class="sidebar-user-avatar">
                             <a href="page_ready_user_profile.php">
-                                <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar">
+                                <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar2.jpg" alt="avatar">
                             </a>
                         </div>
-                        <div class="sidebar-user-name">John Doe</div>
+                        <div class="sidebar-user-name"><?php echo $nom?></div>
                         <div class="sidebar-user-links">
                             <a href="page_ready_user_profile.php" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
                             <a href="page_ready_inbox.php" data-toggle="tooltip" data-placement="bottom" title="Messages"><i class="gi gi-envelope"></i></a>
                             <!-- Opens the user settings modal that can be found at the bottom of each page (page_footer.php in PHP version) -->
                             <a href="javascript:void(0)" class="enable-tooltip" data-placement="bottom" title="Settings" onclick="$('#modal-user-settings').modal('show');"><i class="gi gi-cogwheel"></i></a>
-                            <a href="login.php" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
+                            <a href="<?=base_url();?>index.php/logout" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
                         </div>
                     </div>
                     <!-- END User Info -->
@@ -309,46 +309,46 @@
                         </li>
                         -->
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-night themed-border-night" data-theme="css/themes/night.css" data-toggle="tooltip" title="Night"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-night themed-border-night" data-theme="<?=base_url();?>css/themes/night.css" data-toggle="tooltip" title="Night"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-amethyst themed-border-amethyst" data-theme="css/themes/amethyst.css" data-toggle="tooltip" title="Amethyst"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-amethyst themed-border-amethyst" data-theme="<?=base_url();?>css/themes/amethyst.css" data-toggle="tooltip" title="Amethyst"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-modern themed-border-modern" data-theme="css/themes/modern.css" data-toggle="tooltip" title="Modern"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-modern themed-border-modern" data-theme="<?=base_url();?>css/themes/modern.css" data-toggle="tooltip" title="Modern"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-autumn themed-border-autumn" data-theme="css/themes/autumn.css" data-toggle="tooltip" title="Autumn"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-autumn themed-border-autumn" data-theme="<?=base_url();?>css/themes/autumn.css" data-toggle="tooltip" title="Autumn"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-flatie themed-border-flatie" data-theme="css/themes/flatie.css" data-toggle="tooltip" title="Flatie"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-flatie themed-border-flatie" data-theme="<?=base_url();?>css/themes/flatie.css" data-toggle="tooltip" title="Flatie"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-spring themed-border-spring" data-theme="css/themes/spring.css" data-toggle="tooltip" title="Spring"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-spring themed-border-spring" data-theme="<?=base_url();?>css/themes/spring.css" data-toggle="tooltip" title="Spring"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-fancy themed-border-fancy" data-theme="css/themes/fancy.css" data-toggle="tooltip" title="Fancy"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-fancy themed-border-fancy" data-theme="<?=base_url();?>css/themes/fancy.css" data-toggle="tooltip" title="Fancy"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-fire themed-border-fire" data-theme="css/themes/fire.css" data-toggle="tooltip" title="Fire"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-fire themed-border-fire" data-theme="<?=base_url();?>css/themes/fire.css" data-toggle="tooltip" title="Fire"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-coral themed-border-coral" data-theme="css/themes/coral.css" data-toggle="tooltip" title="Coral"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-coral themed-border-coral" data-theme="<?=base_url();?>css/themes/coral.css" data-toggle="tooltip" title="Coral"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-lake themed-border-lake" data-theme="css/themes/lake.css" data-toggle="tooltip" title="Lake"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-lake themed-border-lake" data-theme="<?=base_url();?>css/themes/lake.css" data-toggle="tooltip" title="Lake"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-forest themed-border-forest" data-theme="css/themes/forest.css" data-toggle="tooltip" title="Forest"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-forest themed-border-forest" data-theme="<?=base_url();?>css/themes/forest.css" data-toggle="tooltip" title="Forest"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-waterlily themed-border-waterlily" data-theme="css/themes/waterlily.css" data-toggle="tooltip" title="Waterlily"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-waterlily themed-border-waterlily" data-theme="<?=base_url();?>css/themes/waterlily.css" data-toggle="tooltip" title="Waterlily"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-emerald themed-border-emerald" data-theme="css/themes/emerald.css" data-toggle="tooltip" title="Emerald"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-emerald themed-border-emerald" data-theme="<?=base_url();?>css/themes/emerald.css" data-toggle="tooltip" title="Emerald"></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" class="themed-background-dark-blackberry themed-border-blackberry" data-theme="css/themes/blackberry.css" data-toggle="tooltip" title="Blackberry"></a>
+                            <a href="javascript:void(0)" class="themed-background-dark-blackberry themed-border-blackberry" data-theme="<?=base_url();?>css/themes/blackberry.css" data-toggle="tooltip" title="Blackberry"></a>
                         </li>
                     </ul>
                     <!-- END Theme Colors -->
@@ -663,7 +663,7 @@
                     <!-- User Dropdown -->
                     <li class="dropdown">
                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar"> <i class="fa fa-angle-down"></i>
+                            <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar2.jpg" alt="avatar"> <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
@@ -702,7 +702,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="page_ready_lock_screen.php"><i class="fa fa-lock fa-fw pull-right"></i> Lock Account</a>
-                                <a href="login.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                <a href="<?=base_url();?>index.php/logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                             </li>
                             <li class="dropdown-header text-center">Activity</li>
                             <li>
