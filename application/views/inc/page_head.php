@@ -186,7 +186,7 @@
                                 <i class="fa fa-times"></i>
                             </button>
                             <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar5.jpg" alt="avatar" class="img-circle pull-left">
-                            <strong><?php echo $nom?></strong>
+                            <strong><?php echo $user['nom']?></strong>
                         </div>
                         <!-- END Chat Info -->
 
@@ -289,12 +289,12 @@
                                 <img src="<?=base_url();?>assets/img/placeholders/avatars/avatar2.jpg" alt="avatar">
                             </a>
                         </div>
-                        <div class="sidebar-user-name"><?php echo $nom?></div>
+                        <div class="sidebar-user-name"><?php echo $user['nom']?></div>
                         <div class="sidebar-user-links">
-                            <a href="page_ready_user_profile.php" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
-                            <a href="page_ready_inbox.php" data-toggle="tooltip" data-placement="bottom" title="Messages"><i class="gi gi-envelope"></i></a>
+                            <a href="page_ready_user_profile.php" data-toggle="tooltip" data-placement="bottom" title="Perfil"><i class="gi gi-user"></i></a>
+                            <a href="page_ready_inbox.php" data-toggle="tooltip" data-placement="bottom" title="Missatges"><i class="gi gi-envelope"></i></a>
                             <!-- Opens the user settings modal that can be found at the bottom of each page (page_footer.php in PHP version) -->
-                            <a href="javascript:void(0)" class="enable-tooltip" data-placement="bottom" title="Settings" onclick="$('#modal-user-settings').modal('show');"><i class="gi gi-cogwheel"></i></a>
+                            <a href="javascript:void(0)" class="enable-tooltip" data-placement="bottom" title="Opcions" onclick="$('#modal-user-settings').modal('show');"><i class="gi gi-cogwheel"></i></a>
                             <a href="<?=base_url();?>index.php/logout" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
                         </div>
                     </div>
@@ -356,106 +356,50 @@
                     <?php if ($primary_nav) { ?>
                     <!-- Sidebar Navigation -->
                     <ul class="sidebar-nav">
-                        <?php foreach( $primary_nav as $key => $link ) {
-                            $link_class = '';
-                            $li_active  = '';
-                            $menu_link  = '';
-
-                            // Get 1st level link's vital info
-                            $url        = (isset($link['url']) && $link['url']) ? $link['url'] : '#';
-                            $active     = (isset($link['url']) && ($template['active_page'] == $link['url'])) ? ' active' : '';
-                            $icon       = (isset($link['icon']) && $link['icon']) ? '<i class="' . $link['icon'] . ' sidebar-nav-icon"></i>' : '';
-
-                            // Check if the link has a submenu
-                            if (isset($link['sub']) && $link['sub']) {
-                                // Since it has a submenu, we need to check if we have to add the class active
-                                // to its parent li element (only if a 2nd or 3rd level link is active)
-                                foreach ($link['sub'] as $sub_link) {
-                                    if (in_array($template['active_page'], $sub_link)) {
-                                        $li_active = ' class="active"';
-                                        break;
-                                    }
-
-                                    // 3rd level links
-                                    if (isset($sub_link['sub']) && $sub_link['sub']) {
-                                        foreach ($sub_link['sub'] as $sub2_link) {
-                                            if (in_array($template['active_page'], $sub2_link)) {
-                                                $li_active = ' class="active"';
-                                                break;
-                                            }
-                                        }
-                                    }
-                                }
-
-                                $menu_link = 'sidebar-nav-menu';
-                            }
-
-                            // Create the class attribute for our link
-                            if ($menu_link || $active) {
-                                $link_class = ' class="'. $menu_link . $active .'"';
-                            }
-                        ?>
-                        <?php if ($url == 'header') { // if it is a header and not a link ?>
-                        <li class="sidebar-header">
-                            <?php if (isset($link['opt']) && $link['opt']) { // If the header has options set ?>
-                            <span class="sidebar-header-options clearfix"><?php echo $link['opt']; ?></span>
-                            <?php } ?>
-                            <span class="sidebar-header-title"><?php echo $link['name']; ?></span>
-                        </li>
-                        <?php } else { // If it is a link ?>
-                        <li<?php echo $li_active; ?>>
-                            <a href="<?php echo $url; ?>"<?php echo $link_class; ?>><?php if (isset($link['sub']) && $link['sub']) { // if the link has a submenu ?><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><?php } echo $icon; ?><span class="sidebar-nav-mini-hide"><?php echo $link['name']; ?></span></a>
-                            <?php if (isset($link['sub']) && $link['sub']) { // if the link has a submenu ?>
-                            <ul>
-                                <?php foreach ($link['sub'] as $sub_link) {
-                                    $link_class = '';
-                                    $li_active = '';
-                                    $submenu_link = '';
-
-                                    // Get 2nd level link's vital info
-                                    $url        = (isset($sub_link['url']) && $sub_link['url']) ? $sub_link['url'] : '#';
-                                    $active     = (isset($sub_link['url']) && ($template['active_page'] == $sub_link['url'])) ? ' active' : '';
-
-                                    // Check if the link has a submenu
-                                    if (isset($sub_link['sub']) && $sub_link['sub']) {
-                                        // Since it has a submenu, we need to check if we have to add the class active
-                                        // to its parent li element (only if a 3rd level link is active)
-                                        foreach ($sub_link['sub'] as $sub2_link) {
-                                            if (in_array($template['active_page'], $sub2_link)) {
-                                                $li_active = ' class="active"';
-                                                break;
-                                            }
-                                        }
-
-                                        $submenu_link = 'sidebar-nav-submenu';
-                                    }
-
-                                    if ($submenu_link || $active) {
-                                        $link_class = ' class="'. $submenu_link . $active .'"';
-                                    }
-                                ?>
-                                <li<?php echo $li_active; ?>>
-                                    <a href="<?php echo $url; ?>"<?php echo $link_class; ?>><?php if (isset($sub_link['sub']) && $sub_link['sub']) { ?><i class="fa fa-angle-left sidebar-nav-indicator"></i><?php } echo $sub_link['name']; ?></a>
-                                    <?php if (isset($sub_link['sub']) && $sub_link['sub']) { ?>
-                                        <ul>
-                                            <?php foreach ($sub_link['sub'] as $sub2_link) {
-                                                // Get 3rd level link's vital info
-                                                $url    = (isset($sub2_link['url']) && $sub2_link['url']) ? $sub2_link['url'] : '#';
-                                                $active = (isset($sub2_link['url']) && ($template['active_page'] == $sub2_link['url'])) ? ' class="active"' : '';
-                                            ?>
-                                            <li>
-                                                <a href="<?php echo $url; ?>"<?php echo $active ?>><?php echo $sub2_link['name']; ?></a>
-                                            </li>
-                                            <?php } ?>
-                                        </ul>
-                                    <?php } ?>
-                                </li>
-                                <?php } ?>
-                            </ul>
-                            <?php } ?>
-                        </li>
-                        <?php } ?>
-                        <?php } ?>
+                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">eCommerce</span></a>
+                    <ul>
+                                        <li>
+                                            <a href="page_ecom_dashboard.html" class=" active">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_orders.html">Orders</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_order_view.html">Order View</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_products.html">Products</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_product_edit.html">Product Edit</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_customer_view.html">Customer View</a>
+                                        </li>
+                    </ul>
+                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Comandes</span></a>
+                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Productes</span></a>
+                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Categories</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="page_ecom_dashboard.html" class=" active">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_orders.html">Orders</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_order_view.html">Order View</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_products.html">Products</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_product_edit.html">Product Edit</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ecom_customer_view.html">Customer View</a>
+                                        </li>
+                                    </ul>
                     </ul>
                     <!-- END Sidebar Navigation -->
                     <?php } ?>
