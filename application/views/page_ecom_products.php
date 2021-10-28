@@ -9,7 +9,7 @@
     <!-- Quick Stats -->
     <div class="row text-center">
         <div class="col-sm-6 col-lg-3">
-            <a href="page_ecom_product_edit.php" class="widget widget-hover-effect2">
+            <a href="<?=base_url();?>index.php/producte/add" class="widget widget-hover-effect2">
                 <div class="widget-extra themed-background-success">
                     <h4 class="widget-content-light"><strong>Afegir</strong> un producte</h4>
                 </div>
@@ -61,31 +61,27 @@
                     <th class="text-center" style="width: 70px;">ID</th>
                     <th>Nom del producte</th>
                     <th class="text-right hidden-xs">Preu</th>
-                    <th class="hidden-xs">Estat</th>
+                    <th class="hidden-xs">Categoria</th>
+                    <th class="hidden-xs text-center">Miniatura</th>
                     <th class="hidden-xs text-center">Data creació</th>
+                    <th class="hidden-xs text-center">SKU</th>
                     <th class="text-center">Acció</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $labels['0']['class']   = "label-success";
-                $labels['0']['text']    = "Available";
-                $labels['1']['class']   = "label-danger";
-                $labels['1']['text']    = "Out of Stock";
-                ?>
-                <?php for($i=99; $i>39; $i--) { ?>
+                <?php foreach($productes as $producte){ ?>
                 <tr>
-                    <td class="text-center"><a href="page_ecom_product_edit.php"><strong>PID.87<?php echo $i; ?></strong></a></td>
-                    <td><a href="page_ecom_product_edit.php">Product #<?php echo $i; ?></a></td>
-                    <td class="text-right hidden-xs"><strong>$<?php echo rand(25, 2500); ?>,00</strong></td>
-                    <td class="hidden-xs">
-                        <span class="label<?php $rand = rand(0, 1); echo ($labels[$rand]['class']) ? " " . $labels[$rand]['class'] : ""; ?>"><?php echo ($rand == 1 ? $labels[$rand]['text'] : $labels[$rand]['text'] . ' (' . $rand = rand(1, 250) . ')'); ?></span>
-                    </td>
-                    <td class="hidden-xs text-center"><?php echo sprintf('%02d', rand(1, 28)) . '/' . sprintf('%02d', rand(1, 12)); ?>/2014</td>
+                    <td class="text-center"><a href="page_ecom_product_edit.php"><strong><?php echo $producte->id; ?></strong></a></td>
+                    <td><a href="page_ecom_product_edit.php"><?php echo $producte->nom; ?></a></td>
+                    <td class="text-right hidden-xs"><strong><?php echo $producte->preu; ?></strong></td>
+                    <td class="text-right hidden-xs"><strong><?php echo $producte->id_categoria; ?></strong></td>
+                    <td class="text-right hidden-xs"><strong><?php echo $producte->miniatura; ?></strong></td>
+                    <td class="hidden-xs text-center"><?php echo $producte->data_creacio; ?></td>
+                    <td class="hidden-xs text-center"><?php echo $producte->sku; ?></td>
                     <td class="text-center">
                         <div class="btn-group btn-group-xs">
-                            <a href="page_ecom_product_edit.php" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="<?php echo site_url('producte/edit/'.$producte->id); ?>" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                            <a href="<?php echo site_url('producte/remove/'.$producte->id); ?>" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
                         </div>
                     </td>
                 </tr>

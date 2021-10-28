@@ -36,6 +36,7 @@ class Login_model extends CI_Model {
         if($query->num_rows() == 1)
         {
           $row=$query->row();
+          var_dump(password_hash($password, PASSWORD_BCRYPT));
             if(password_verify($password, $row->password))
             {              
                 $data=array(
