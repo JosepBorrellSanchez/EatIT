@@ -45,13 +45,13 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="product-name">Nom</label>
                         <div class="col-md-9">
-                            <input type="text" id="product-name" name="product-name" class="form-control" placeholder="Nom del producte">
+                        <input type="text" name="nom" class="form-control" value="<?php echo ($this->input->post('nom') ? $this->input->post('nom') : $producte['nom']); ?>" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="product-short-description">Descripció</label>
                         <div class="col-md-9">
-                            <textarea id="product-short-description" name="product-short-description" class="form-control" rows="3"></textarea>
+                            <textarea id="product-short-description" name="product-short-description" class="form-control" rows="3"><?php echo ($this->input->post('descripcio') ? $this->input->post('descripcio') : $producte['descripcio']); ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -60,7 +60,7 @@
                             <!-- Chosen plugin (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://harvesthq.github.io/chosen/ -->
                             <select id="product-category" name="product-category" class="select-chosen" data-placeholder="Choose Category.." style="width: 250px;">
                                 <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
-                                <option value="1">Tablets</option>
+                                <option value="1" selected>Tablets</option>
                                 <option value="2">Laptops</option>
                                 <option value="3">PCs</option>
                                 <option value="4">Consoles</option>
@@ -77,21 +77,24 @@
                         <div class="col-md-8">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-eur"></i></div>
-                                <input type="text" id="product-price" name="product-price" class="form-control" placeholder="0,00">
+                                <input type="text" id="product-price" name="product-price" class="form-control" placeholder="0,00" value="<?php echo ($this->input->post('preu') ? $this->input->post('preu') : $producte['preu']); ?>" />
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Sku</label>
                         <div class="col-md-9">
-                            <input type="text" id="product-name" name="product-name" class="form-control" placeholder="SKU">
+                            <input type="text" id="product-name" name="product-name" class="form-control" placeholder="SKU" value="<?php echo ($this->input->post('sku') ? $this->input->post('sku') : $producte['sku']); ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Actiu?</label>
                         <div class="col-md-9">
                             <label class="switch switch-primary">
-                                <input type="checkbox" id="product-status" name="product-status" checked><span></span>
+                                <?if($producte['sku'] == "on"){?>
+                                    <input type="checkbox" id="product-status" name="product-status" checked><span></span>
+                                <?}?>
+                                
                             </label>
                         </div>
                     </div>

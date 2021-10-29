@@ -88,7 +88,7 @@ class Producte extends CI_Controller
             else
             {
                 $data['_view'] = 'producte/edit';
-                $this->load->view('page_ecom_product_add',$data);
+                $this->load->view('page_ecom_product_edit',$data);
             }
         }
         else
