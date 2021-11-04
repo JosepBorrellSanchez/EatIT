@@ -1,23 +1,17 @@
 <!-- eCommerce Dashboard Header -->
 <div class="content-header">
         <ul class="nav-horizontal text-center">
-            <li class="active">
-                <a href="page_ecom_dashboard.php"><i class="fa fa-bar-chart"></i> Dashboard</a>
+            <li>
+                <a href=<?php echo site_url('');?>><i class="fa fa-bar-chart"></i> Dashboard</a>
             </li>
             <li>
-                <a href="page_ecom_orders.php"><i class="gi gi-shop_window"></i> Comandes</a>
+                <a href=<?php echo site_url('comanda/');?>><i class="gi gi-shop_window"></i> Comandes</a>
             </li>
             <li>
-                <a href="page_ecom_order_view.php"><i class="gi gi-shopping_cart"></i> Veure comanda</a>
+                <a href=<?php echo site_url('producte/');?>><i class="gi gi-shopping_bag"></i> Productes</a>
             </li>
             <li>
-                <a href="<?=base_url();?>index.php/producte"><i class="gi gi-shopping_bag"></i> Productes</a>
-            </li>
-            <li>
-                <a href="page_ecom_product_edit.php"><i class="gi gi-pencil"></i> Editar productes</a>
-            </li>
-            <li>
-                <a href="page_ecom_customer_view.php"><i class="gi gi-user"></i> Veure client</a>
+                <a href=<?php echo site_url('principal/comingSoon');?>><i class="gi gi-user"></i> Clients</a>
             </li>
         </ul>
     </div>

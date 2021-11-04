@@ -21,7 +21,7 @@
                 <div class="widget-extra themed-background-danger">
                     <h4 class="widget-content-light"><strong>Sense </strong> stock</h4>
                 </div>
-                <div class="widget-extra-full"><span class="h2 text-danger animation-expandOpen">71</span></div>
+                <div class="widget-extra-full"><span class="h2 text-danger animation-expandOpen">N/A</span></div>
             </a>
         </div>
         <div class="col-sm-6 col-lg-3">
@@ -29,7 +29,7 @@
                 <div class="widget-extra themed-background-dark">
                     <h4 class="widget-content-light"><strong>Més </strong> venut</h4>
                 </div>
-                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">20</span></div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">N/A</span></div>
             </a>
         </div>
         <div class="col-sm-6 col-lg-3">
@@ -37,7 +37,7 @@
                 <div class="widget-extra themed-background-dark">
                     <h4 class="widget-content-light"><strong>Total</strong> productes</h4>
                 </div>
-                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">4.982</span></div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">N/A</span></div>
             </a>
         </div>
     </div>

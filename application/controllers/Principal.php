@@ -40,6 +40,11 @@ class Principal extends CI_Controller
       }
     }
 
+    public function comingSoon(){
+      $data['user'] = $this->session->userdata('logged_in');
+      $this->load->view('coming_soon', $data);
+    }
+
     function logout()
     //es carrega la sessió.
     {
