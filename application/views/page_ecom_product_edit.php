@@ -20,7 +20,9 @@
                 <!-- END General Data Title -->
 
                 <!-- General Data Content -->
-                <form action="page_ecom_product_edit.php" method="post" class="form-horizontal form-bordered" onsubmit="return false;">
+                <!--<form action="page_ecom_product_edit.php" method="post" class="form-horizontal form-bordered" onsubmit="return false;">-->
+                <?php $attributes = array('class' => 'form-horizontal form-bordered'); ?>
+                <?php echo form_open('producte/edit/'.$producte['id'], $attributes); ?>
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="product-name">Nom</label>
                         <div class="col-md-9">
@@ -30,24 +32,23 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="product-short-description">Descripció</label>
                         <div class="col-md-9">
-                            <textarea id="product-short-description" name="product-short-description" class="form-control" rows="3"><?php echo ($this->input->post('descripcio') ? $this->input->post('descripcio') : $producte['descripcio']); ?></textarea>
+                            <textarea id="descripcio" name="descripcio" class="form-control" rows="3"><?php echo ($this->input->post('descripcio') ? $this->input->post('descripcio') : $producte['descripcio']); ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="product-category">Categoria</label>
                         <div class="col-md-8">
                             <!-- Chosen plugin (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://harvesthq.github.io/chosen/ -->
-                            <select id="product-category" name="product-category" class="select-chosen" data-placeholder="Choose Category.." style="width: 250px;">
+                                <select id="id_categoria" name="id_categoria" class="select-chosen" data-placeholder="Choose Category.." style="width: 250px;">
                                 <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
-                                <option value="1" selected>Tablets</option>
-                                <option value="2">Laptops</option>
-                                <option value="3">PCs</option>
-                                <option value="4">Consoles</option>
-                                <option value="5">Movies</option>
-                                <option value="6">Books</option>
-                                <option value="7">Cables</option>
-                                <option value="8">Adapters</option>
-                                <option value="9">Office</option>
+                                
+                                <?php foreach($categories as $categoria){ ?>
+                                <?php if($categoria['id']==$producte['id_categoria']) {?>
+                                    <option value=<?php echo $categoria['id'];?> selected><?php echo $categoria['nom']?> </option>
+                                <?php } else {?>
+                                <option value=<?php echo $categoria['id'];?>><?php echo $categoria['nom']?> </option>
+                                <?php }?>
+                                <?php }?>
                             </select>
                         </div>
                     </div>
@@ -56,30 +57,44 @@
                         <div class="col-md-8">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-eur"></i></div>
-                                <input type="text" id="product-price" name="product-price" class="form-control" placeholder="0,00" value="<?php echo ($this->input->post('preu') ? $this->input->post('preu') : $producte['preu']); ?>" />
+                                <input type="text" id="preu" name="preu" class="form-control" placeholder="0,00" value="<?php echo ($this->input->post('preu') ? $this->input->post('preu') : $producte['preu']); ?>" />
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Sku</label>
                         <div class="col-md-9">
-                            <input type="text" id="product-name" name="product-name" class="form-control" placeholder="SKU" value="<?php echo ($this->input->post('sku') ? $this->input->post('sku') : $producte['sku']); ?>">
+                            <input type="text" id="sku" name="sku" class="form-control" placeholder="SKU" value="<?php echo ($this->input->post('sku') ? $this->input->post('sku') : $producte['sku']); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Imatge</label>
+                        <div class="col-md-9">
+                            <input type="text" id="imatge" name="imatge" class="form-control" placeholder="Url de la imatge" value="<?php echo ($this->input->post('imatge') ? $this->input->post('imatge') : $producte['imatge']); ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Miniatura</label>
+                        <div class="col-md-9">
+                            <input type="text" id="miniatura" name="miniatura" class="form-control" placeholder="URL de la miniatura" value="<?php echo ($this->input->post('miniatura') ? $this->input->post('miniatura') : $producte['miniatura']); ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Actiu?</label>
                         <div class="col-md-9">
                             <label class="switch switch-primary">
-                                <?if($producte['sku'] == "on"){?>
-                                    <input type="checkbox" id="product-status" name="product-status" checked><span></span>
-                                <?}?>
+                                <?php if($producte['actiu'] == 1) {?>
+                                    <input type="checkbox" id="actiu" name="actiu" checked><span></span>
+                                    <?php } else {?>
+                                        <input type="checkbox" id="actiu" name="actiu"><span></span>
+                                <?php }?>
                                 
                             </label>
                         </div>
                     </div>
                     <div class="form-group form-actions">
                         <div class="col-md-9 col-md-offset-3">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Save</button>
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Guardar</button>
                             <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset</button>
                         </div>
                     </div>

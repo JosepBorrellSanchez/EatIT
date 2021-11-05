@@ -25,6 +25,7 @@ class Producte extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Producte_model');
+    $this->load->model('Category_model');
   }
 
   public function index()
@@ -38,6 +39,9 @@ class Producte extends CI_Controller
 
   public function add(){
     $data['user'] = $this->session->userdata('logged_in');
+    $data['categories'] = $this->Category_model->get_all_categories();
+    //var_dump($data['categories']);
+    //die();
     if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
@@ -48,8 +52,8 @@ class Producte extends CI_Controller
               'data_creacio' => date("Y-m-d"),
               'sku' => $this->input->post('sku'),
               'descripcio' => $this->input->post('descripcio'),
-              'imatge' => "http://asdasdads",//$this->input->post('imatge'),
-              'miniatura' => "http://asdasdads"//$this->input->post('miniatura'),
+              'imatge' => $this->input->post('imatge'),//$this->input->post('imatge'),
+              'miniatura' => $this->input->post('miniatura')//$this->input->post('miniatura'),
             );
             
             $producte_id = $this->Producte_model->newProducte($params);
@@ -64,24 +68,31 @@ class Producte extends CI_Controller
 
   function edit($id)
     {   
+        $data['user'] = $this->session->userdata('logged_in');
         $data['producte'] = $this->Producte_model->get_producte($id);
+        $data['categories'] = $this->Category_model->get_all_categories();
         
         if(isset($data['producte']['id']))
         {
             if(isset($_POST) && count($_POST) > 0)     
             {   
+                $actiu = $this->input->post('actiu');
+                if($this->input->post('actiu')=="on"){
+                  $actiu = 1;
+                }
+                else{
+                  $actiu=0;
+                }
                 $params = array(
-                'actiu' => $this->input->post('actiu'),
+                'actiu' => $actiu,
                 'nom' => $this->input->post('nom'),
                 'preu' => $this->input->post('preu'),
                 'id_categoria' => $this->input->post('id_categoria'),
-                'data_creacio' => $this->input->post('data_creacio'),
                 'sku' => $this->input->post('sku'),
                 'descripcio' => $this->input->post('descripcio'),
-                'imatge' => "http://asdasdads",//$this->input->post('imatge'),
-                'miniatura' => "http://asdasdads"//$this->input->post('miniatura'),
+                'imatge' => $this->input->post('imatge'),//$this->input->post('imatge'),
+                'miniatura' => $this->input->post('miniatura')//$this->input->post('miniatura'),
                 );
-
                 $this->Producte_model->update_producte($id,$params);            
                 redirect('producte/index');
             }
