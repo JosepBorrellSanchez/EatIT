@@ -21,7 +21,7 @@
         <div class="col-sm-6 col-lg-3">
             <div class="widget">
                 <div class="widget-extra themed-background-success">
-                    <h4 class="widget-content-light"><i class="fa fa-paypal"></i> <strong>Payment</strong></h4>
+                    <h4 class="widget-content-light"><i class="fa fa-paypal"></i> <strong>Pagament</strong></h4>
                 </div>
                 <div class="widget-extra-full"><span class="h2 text-success animation-expandOpen"><i class="fa fa-check"></i></span></div>
             </div>
@@ -37,7 +37,7 @@
         <div class="col-sm-6 col-lg-3">
             <div class="widget">
                 <div class="widget-extra themed-background-muted">
-                    <h4 class="widget-content-light"><i class="fa fa-truck"></i> <strong>Delivery</strong></h4>
+                    <h4 class="widget-content-light"><i class="fa fa-truck"></i> <strong>Enviamnet</strong></h4>
                 </div>
                 <div class="widget-extra-full"><span class="h2 text-muted animation-pulse"><i class="fa fa-ellipsis-h"></i></span></div>
             </div>
@@ -49,7 +49,7 @@
     <div class="block">
         <!-- Products Title -->
         <div class="block-title">
-            <h2><i class="fa fa-shopping-cart"></i> <strong>Products</strong></h2>
+            <h2><i class="fa fa-shopping-cart"></i> <strong>Productes</strong></h2>
         </div>
         <!-- END Products Title -->
 
@@ -58,27 +58,25 @@
             <table class="table table-bordered table-vcenter">
                 <thead>
                     <tr>
-                        <th class="text-center" style="width: 100px;">ID</th>
-                        <th>Product Name</th>
-                        <th class="text-center">Stock</th>
-                        <th class="text-center">QTY</th>
-                        <th class="text-right" style="width: 10%;">UNIT COST</th>
-                        <th class="text-right" style="width: 10%;">PRICE</th>
+                        <th>Nom del producte</th>
+                        <th class="text-center">Quantitat</th>
+                        <th class="text-center">Desompte</th>
+                        <th class="text-right" style="width: 10%;">Preu unitat</th>
+                        <th class="text-right" style="width: 10%;">Preu total</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php foreach($detallscomanda as $detalls){ ?>
                     <tr>
-                        <td class="text-center"><a href="page_ecom_product_edit.php"><strong><?php echo $detalls->id ?></strong></a></td>
-                        <td><a href="page_ecom_product_edit.php"><?php echo $detalls->id_producte?></a></td>
-                        <td class="text-center"><strong><?php echo $detalls->descompte?></strong></td>
+                        <td><a href=<?php echo site_url('producte/edit/'.$detalls->id)?>><?php echo $detalls->nom?></a></td>
                         <td class="text-center"><strong><?php echo $detalls->quantitat?></strong></td>
+                        <td class="text-center"><strong><?php echo $detalls->descompte?></strong></td>
                         <td class="text-right"><strong><?php echo $detalls->preu?></strong></td>
                         <td class="text-right"><strong><?php echo $detalls->preu*$detalls->quantitat?> €</strong></td>
                     </tr>
                 <?php }?>
                 <tr class="active">
-                        <td colspan="5" class="text-right text-uppercase"><strong>Total:</strong></td>
+                        <td colspan="4" class="text-right text-uppercase"><strong>Total:</strong></td>
                         <td class="text-right"><strong><?php echo $comanda['preuTotal']?> €</strong></td>
                     </tr>
                 </tbody>
@@ -95,18 +93,13 @@
             <div class="block">
                 <!-- Billing Address Title -->
                 <div class="block-title">
-                    <h2><i class="fa fa-building-o"></i> <strong>Billing</strong> Address</h2>
+                    <h2><i class="fa fa-building-o"></i> <strong>Adreça</strong> de facturació</h2>
                 </div>
                 <!-- END Billing Address Title -->
 
                 <!-- Billing Address Content -->
-                <h4><strong>Jonathan Taylor</strong></h4>
                 <address>
-                    Sunset Str 620<br>
-                    Melbourne<br>
-                    Australia, 21-842<br><br>
-                    <i class="fa fa-phone"></i> (999) 852-11111<br>
-                    <i class="fa fa-envelope-o"></i> <a href="javascript:void(0)">johnathan.taylor@example.com</a>
+                    <?php echo $comanda['facturacio'];?>
                 </address>
                 <!-- END Billing Address Content -->
             </div>
@@ -117,18 +110,13 @@
             <div class="block">
                 <!-- Shipping Address Title -->
                 <div class="block-title">
-                    <h2><i class="fa fa-building-o"></i> <strong>Shipping</strong> Address</h2>
+                    <h2><i class="fa fa-building-o"></i> <strong>Adreça </strong>d'enviament</h2>
                 </div>
                 <!-- END Shipping Address Title -->
 
                 <!-- Shipping Address Content -->
-                <h4><strong>Harry Burke</strong></h4>
                 <address>
-                    Sunset Str 598<br>
-                    Melbourne<br>
-                    Australia, 21-852<br><br>
-                    <i class="fa fa-phone"></i> (999) 852-22222<br>
-                    <i class="fa fa-envelope-o"></i> <a href="javascript:void(0)">harry.burke@example.com</a>
+                <?php echo $comanda['enviament'];?>
                 </address>
                 <!-- END Shipping Address Content -->
             </div>
@@ -141,7 +129,7 @@
     <div class="block">
         <!-- Log Title -->
         <div class="block-title">
-            <h2><i class="fa fa-file-text-o"></i> <strong>Log</strong> Messages</h2>
+            <h2><i class="fa fa-file-text-o"></i> <strong>Log</strong> de la comanda</h2>
         </div>
         <!-- END Log Title -->
 

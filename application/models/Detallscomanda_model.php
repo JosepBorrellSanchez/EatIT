@@ -28,7 +28,10 @@ class Detallscomanda_model extends CI_Model
      */
     function get_detallscomanda($id_comanda)
     {
-        return $this->db->get_where('detallscomandes',array('id_comanda'=>$id_comanda))->result();
+       $query="SELECT detallscomandes.preu, detallscomandes.descompte, detallscomandes.quantitat, productes.nom, productes.id FROM `detallscomandes` JOIN productes ON detallscomandes.id_producte=productes.id WHERE`id_comanda`=".$id_comanda.";";
+        return $this->db->query($query)->result();
+
+        //return $this->db->get_where('detallscomandes',array('id_comanda'=>$id_comanda))->result();
     }
         
     /*

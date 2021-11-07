@@ -73,6 +73,8 @@ class Comanda extends CI_Controller{
       $data['detallscomanda'] = $this->Detallscomanda_model->get_detallscomanda($id);
       $data['user'] = $this->session->userdata('logged_in');
       
+      //var_dump($data['detallscomanda']);
+      //die();
       if(isset($data['comanda']['id']))
       {
         $data['_view'] = 'comanda/veure';
