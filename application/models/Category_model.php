@@ -47,7 +47,7 @@ class Category_model extends CI_Model {
   function get_all_categories()
   {
       $this->db->order_by('id', 'desc');
-      return $this->db->get('categories')->result_array();
+      return $this->db->get('categories')->result();
   }
       
   /*
