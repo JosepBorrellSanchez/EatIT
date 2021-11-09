@@ -44,6 +44,7 @@ class Botiga extends CI_Controller
       'id'      => $producte['id'],
       'qty'     => 1,
       'price'   => $producte['preu'],
+      'img'     => $producte['miniatura'],
       'name'    => $producte['nom']
     );
 
@@ -53,6 +54,10 @@ class Botiga extends CI_Controller
    //$this->cart->destroy();
    die();
    redirect('botiga');
+  }
+
+  public function finalitza(){
+    $this->load->view('checkout-1', $this->cart->contents());
   }
 
 }
