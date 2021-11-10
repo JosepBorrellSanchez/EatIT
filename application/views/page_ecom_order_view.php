@@ -93,13 +93,13 @@
             <div class="block">
                 <!-- Billing Address Title -->
                 <div class="block-title">
-                    <h2><i class="fa fa-building-o"></i> <strong>Adreça</strong> de facturació</h2>
+                    <h2><i class="fa fa-building-o"></i> <strong>Missatge</strong></h2>
                 </div>
                 <!-- END Billing Address Title -->
 
                 <!-- Billing Address Content -->
                 <address>
-                    <?php echo $comanda['facturacio'];?>
+                    <?php echo $comanda['missatge'];?>
                 </address>
                 <!-- END Billing Address Content -->
             </div>

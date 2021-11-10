@@ -38,12 +38,12 @@
                         <label class="col-md-3 control-label" for="product-category">Categoria</label>
                         <div class="col-md-8">
                             <!-- Chosen plugin (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://harvesthq.github.io/chosen/ -->
-                            <select id="id_categoria" name="id_categoria" class="select-chosen" data-placeholder="Choose Category.." style="width: 250px;">
+                            <select id="id_categoria" name="id_categoria" class="select-chosen" data-placeholder="Tria la categoria..." style="width: 250px;">
                                 <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
                                 
                                 <?php foreach($categories as $categoria){ ?>
 
-                                <option value=<?php echo $categoria['id'];?>><?php echo $categoria['nom']?></option>
+                                <option value=<?php echo $categoria->id;?>><?php echo $categoria->nom?></option>
                                 <?php }?>
                             </select>
                         </div>

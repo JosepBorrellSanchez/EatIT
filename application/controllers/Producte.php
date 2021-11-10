@@ -40,8 +40,6 @@ class Producte extends CI_Controller
   public function add(){
     $data['user'] = $this->session->userdata('logged_in');
     $data['categories'] = $this->Category_model->get_all_categories();
-    //var_dump($data['categories']);
-    //die();
     if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(

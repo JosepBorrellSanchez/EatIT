@@ -46,7 +46,7 @@
                               <h4 class="h4 caption">Total:<b class="main-col"><?php echo $this->cart->total()?>€</b></h4>  
                            </div>
                            <div class="fr">
-                               <a href="#" class="page-button button-style-1 type-4"><span class="txt">Finalitza la comanda</span></a>
+                               <a href="<?php echo site_url('botiga/finalitza')?>" class="page-button button-style-1 type-4"><span class="txt">Finalitza la comanda</span></a>
                            </div>
                        </div>
                      </div>   

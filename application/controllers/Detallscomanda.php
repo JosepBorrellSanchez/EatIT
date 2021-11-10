@@ -22,6 +22,7 @@ class Detallscomanda extends CI_Controller{
   {
       parent::__construct();
       $this->load->model('Detallscomanda_model');
+      $this->load->library('cart');
   } 
 
   /*
@@ -38,27 +39,23 @@ class Detallscomanda extends CI_Controller{
   /*
    * Adding a new detallscomanda
    */
-  function add()
+  function add($id_comanda)
   {   
-      if(isset($_POST) && count($_POST) > 0)     
-      {   
-          $params = array(
-      'id_comanda' => $this->input->post('id_comanda'),
-      'id_producte' => $this->input->post('id_producte'),
-      'preu' => $this->input->post('preu'),
-      'descompte' => $this->input->post('descompte'),
-      'quantitat' => $this->input->post('quantitat'),
-      'sku' => $this->input->post('sku'),
-          );
-          
+
+    foreach($this->cart->contents() as $items){ 
+        
+      $params = array(
+      'id_comanda' => $id_comanda,
+      'id_producte' => $items['id'],
+      'preu' => $items['price'],
+      'descompte' => 0,
+      'quantitat' => $items['qty'],
+      'sku' => $items['sku']
+       );
           $detallscomanda_id = $this->Detallscomanda_model->add_detallscomanda($params);
-          redirect('detallscomanda/index');
-      }
-      else
-      {            
-          $data['_view'] = 'detallscomanda/add';
-          $this->load->view('layouts/main',$data);
-      }
+    }
+    $this->cart->destroy();
+          redirect('Botiga');
   }  
 
   /*

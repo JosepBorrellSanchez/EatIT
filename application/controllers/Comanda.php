@@ -24,6 +24,7 @@ class Comanda extends CI_Controller{
       parent::__construct();
       $this->load->model('Comanda_model');
       $this->load->model('Detallscomanda_model');
+      $this->load->library('cart');
   } 
 
   /*
@@ -45,16 +46,22 @@ class Comanda extends CI_Controller{
       if(isset($_POST) && count($_POST) > 0)     
       {   
           $params = array(
-      'id_client' => $this->input->post('id_client'),
-      'preuTotal' => $this->input->post('preuTotal'),
-      'data' => $this->input->post('data'),
-      'estat' => $this->input->post('estat'),
-      'enviament' => $this->input->post('enviament'),
-      'facturacio' => $this->input->post('facturacio'),
+      'nom' => $this->input->post('nom'),
+      'cognoms' => $this->input->post('cognom'),
+      'email' => $this->input->post('email'),
+      'estat' => 'Rebuda',
+      'telefon' => $this->input->post('telefon'),
+      'ciutat' => $this->input->post('ciutat'),
+      'cp' => $this->input->post('cp'),
+      'preuTotal' => $this->cart->total(),
+      'enviament' => $this->input->post('adreça'),
+      'missatge' => $this->input->post('missatge'),
+      'data' => date("Y-m-d H:i:s")
           );
           
           $comanda_id = $this->Comanda_model->add_comanda($params);
-          redirect('comanda/index');
+
+          redirect('Detallscomanda/add/'.$comanda_id);
       }
       else
       {            

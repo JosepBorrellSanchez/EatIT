@@ -61,10 +61,15 @@
             <thead>
                 <tr>
                     <th class="text-center" style="width: 100px;">ID</th>
-                    <th class="visible-lg">Client</th>
-                    <th class="text-center visible-lg">Preu</th>
+                    <th class="text-center visible-lg">Nom</th>
+                    <th class="text-center visible-lg">Cognoms</th>
+                    <th class="text-center visible-lg">Email</th>
+                    <th class="text-center visible-lg">Telèfon</th>
+                    <th class="text-center visible-lg">Ciutat</th>
+                    <th class="text-center visible-lg">CP</th>¡
+                    <th class="text-center visible-lg">Import</th>
                     <th class="hidden-xs">Direcció enviament</th>
-                    <th class="text-right hidden-xs">Direcció facturació</th>
+                    <th class="hidden-xs">Missatge</th>
                     <th>Estat</th>
                     <th class="hidden-xs text-center">Data</th>
                     <th class="text-center">Accions</th>
@@ -77,15 +82,19 @@
                 $labels['Cancel·lada']['class']   = "label-danger";
                 $labels['En tràmit']['class']   = "label-warning";
                 $labels['Rebuda']['class']   = "label-default";
-
                 ?>
                 <?php foreach($comandes as $comanda){ ?>
                 <tr>
                     <td class="text-center"><a href=<?php echo site_url('comanda/edit/'.$comanda['id']); ?>><strong><?php echo $comanda['id']; ?></strong></a></td>
-                    <td class="visible-lg"><a href="javascript:void(0)"><?php echo $comanda['id_client']; ?></a></td>
-                    <td class="text-center visible-lg"><a href="javascript:void(0)"><?php echo $comanda['preuTotal']; ?></a></td>
+                    <td class="text-center visible-lg"><?php echo $comanda['Nom']; ?></a></td>
+                    <td class="text-center visible-lg"><?php echo $comanda['Cognoms']; ?></a></td>
+                    <td class="text-center visible-lg"><?php echo $comanda['email']; ?></a></td>
+                    <td class="text-center visible-lg"><?php echo $comanda['Telefon']; ?></a></td>
+                    <td class="text-center visible-lg"><?php echo $comanda['Ciutat']; ?></a></td>
+                    <td class="text-center visible-lg"><?php echo $comanda['cp']; ?></a></td>
+                    <td class="text-center visible-lg"><?php echo $comanda['preuTotal']; ?></a></td>
                     <td class="hidden-xs"><?php echo $comanda['enviament']; ?></td>
-                    <td class="text-right hidden-xs"><strong><?php echo $comanda['facturacio'] ?></strong></td>
+                    <td class="hidden-xs"><?php echo $comanda['missatge']; ?></td>
                     <td><span class="label<?php $comanda['estat']; echo ($labels[$comanda['estat']]['class']) ? " " . $labels[$comanda['estat']]['class'] : ""; ?>"><?php echo $comanda['estat']; ?></span></td>
                     <td class="hidden-xs text-center"><?php echo $comanda['data']?></td>
                     <td class="text-center">

@@ -45,19 +45,24 @@ class Botiga extends CI_Controller
       'qty'     => 1,
       'price'   => $producte['preu'],
       'img'     => $producte['miniatura'],
-      'name'    => $producte['nom']
+      'name'    => $producte['nom'],
+      'sku'     => $producte['sku']
     );
 
    $this->cart->insert($data);
    
-   var_dump($this->cart->contents());
+   //var_dump($this->cart->contents());
    //$this->cart->destroy();
-   die();
+   //die();
    redirect('botiga');
   }
 
   public function finalitza(){
     $this->load->view('checkout-1', $this->cart->contents());
+  }
+
+  public function comingSoon(){
+    $this->load->view('coming-soon');
   }
 
 }

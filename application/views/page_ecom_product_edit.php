@@ -43,10 +43,10 @@
                                 <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
                                 
                                 <?php foreach($categories as $categoria){ ?>
-                                <?php if($categoria['id']==$producte['id_categoria']) {?>
-                                    <option value=<?php echo $categoria['id'];?> selected><?php echo $categoria['nom']?> </option>
+                                <?php if($categoria->id==$producte['id_categoria']) {?>
+                                    <option value=<?php echo $categoria->id;?> selected><?php echo $categoria->nom?> </option>
                                 <?php } else {?>
-                                <option value=<?php echo $categoria['id'];?>><?php echo $categoria['nom']?> </option>
+                                <option value=<?php echo $categoria->id?>><?php echo $categoria->nom?> </option>
                                 <?php }?>
                                 <?php }?>
                             </select>
