@@ -37,7 +37,7 @@
         <div class="col-sm-6 col-lg-3">
             <div class="widget">
                 <div class="widget-extra themed-background-muted">
-                    <h4 class="widget-content-light"><i class="fa fa-truck"></i> <strong>Enviamnet</strong></h4>
+                    <h4 class="widget-content-light"><i class="fa fa-truck"></i> <strong>Enviament</strong></h4>
                 </div>
                 <div class="widget-extra-full"><span class="h2 text-muted animation-pulse"><i class="fa fa-ellipsis-h"></i></span></div>
             </div>
@@ -60,7 +60,7 @@
                     <tr>
                         <th>Nom del producte</th>
                         <th class="text-center">Quantitat</th>
-                        <th class="text-center">Desompte</th>
+                        <th class="text-center">Descompte</th>
                         <th class="text-right" style="width: 10%;">Preu unitat</th>
                         <th class="text-right" style="width: 10%;">Preu total</th>
                     </tr>
@@ -129,7 +129,7 @@
     <div class="block">
         <!-- Log Title -->
         <div class="block-title">
-            <h2><i class="fa fa-file-text-o"></i> <strong>Log</strong> de la comanda</h2>
+            <h2><i class="fa fa-file-text-o"></i> <strong>Log</strong> de la comanda (en construcció)</h2>
         </div>
         <!-- END Log Title -->
 

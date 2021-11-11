@@ -45,7 +45,7 @@ class Login extends CI_Controller
         //$password_hash = password_hash($password, PASSWORD_BCRYPT);
         if($this->login_model->index($email, $password))
         {
-            redirect('principal');
+            redirect('Comanda');
         }
         else
         {

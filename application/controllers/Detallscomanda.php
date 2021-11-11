@@ -55,7 +55,7 @@ class Detallscomanda extends CI_Controller{
           $detallscomanda_id = $this->Detallscomanda_model->add_detallscomanda($params);
     }
     $this->cart->destroy();
-          redirect('Botiga');
+          redirect('botiga/gracies');
   }  
 
   /*

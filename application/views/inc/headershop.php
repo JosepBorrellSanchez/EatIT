@@ -71,8 +71,6 @@
               <ul class="header-menu">
                 <li><a href=<?php echo site_url('Botiga')?>>Inici<img src="<?=base_url();?>assets/img/down-arrow.png" alt="" class="menu-arr"></a></li>
                     <li class="active"><a href=<?php echo site_url('Botiga')?>>Tenda<img src="<?=base_url();?>assets/img/down-arrow.png" alt="" class="menu-arr"></a></li>
-                     <li><a href=<?php echo site_url('Botiga/comingSoon')?>>Contacte<img src="<?=base_url();?>assets/img/down-arrow.png" alt="" class="menu-arr"></a>
-                    </li>
                 </ul>
             </nav>
             </div>

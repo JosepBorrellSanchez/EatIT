@@ -31,7 +31,7 @@ class Principal extends CI_Controller
       if($this->session->userdata('logged_in'))
       {
         $data['user'] = $this->session->userdata('logged_in');
-        $this->load->view('page_ecom_dashboard', $data);
+        $this->load->view('coming_soon', $data);
       }
       else
       {

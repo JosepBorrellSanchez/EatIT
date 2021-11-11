@@ -38,6 +38,19 @@ class Botiga extends CI_Controller
     $this->load->view('shop-2', $data);
   }
 
+  public function categoria($id_categoria)
+  {
+    
+    $data['productes'] = $this->Producte_model->getAllProductesCategoria($id_categoria);
+    $data['categories'] = $this->Category_model->get_all_categories();
+    $this->load->view('shop-2', $data);
+  }
+
+  public function producte ($id_producte){
+    $data['producte'] = $this->Producte_model->get_producte($id_producte);
+    $this->load->view('detall_producte', $data);
+  }
+
   public function add($id_producte){
     $producte= $this->Producte_model->get_producte($id_producte);
     $data = array(
@@ -46,8 +59,9 @@ class Botiga extends CI_Controller
       'price'   => $producte['preu'],
       'img'     => $producte['miniatura'],
       'name'    => $producte['nom'],
-      'sku'     => $producte['sku']
+      'sku'     => $producte['sku'],
     );
+    
 
    $this->cart->insert($data);
    
@@ -57,12 +71,23 @@ class Botiga extends CI_Controller
    redirect('botiga');
   }
 
+  public function remove($rowid){
+
+    $this->cart->remove($rowid);
+    redirect('botiga');
+}
+
+
   public function finalitza(){
     $this->load->view('checkout-1', $this->cart->contents());
   }
 
   public function comingSoon(){
     $this->load->view('coming-soon');
+  }
+
+  public function gracies(){
+    $this->load->view('gracies');
   }
 
 }

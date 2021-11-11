@@ -15,7 +15,7 @@
                 <div class="widget-extra themed-background">
                     <h4 class="widget-content-light"><strong>Comandes </strong>pendents</h4>
                 </div>
-                <div class="widget-extra-full"><span class="h2 animation-expandOpen">3</span></div>
+                <div class="widget-extra-full"><span class="h2 animation-expandOpen">N/A</span></div>
             </a>
         </div>
         <div class="col-sm-6 col-lg-3">
@@ -66,7 +66,7 @@
                     <th class="text-center visible-lg">Email</th>
                     <th class="text-center visible-lg">Telèfon</th>
                     <th class="text-center visible-lg">Ciutat</th>
-                    <th class="text-center visible-lg">CP</th>¡
+                    <th class="text-center visible-lg">CP</th>
                     <th class="text-center visible-lg">Import</th>
                     <th class="hidden-xs">Direcció enviament</th>
                     <th class="hidden-xs">Missatge</th>

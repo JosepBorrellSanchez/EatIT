@@ -38,6 +38,12 @@ class Producte_model extends CI_Model {
       return $productes->result();
   }
 
+  public function getAllProductesCategoria($id_categoria){
+    $this->db->where('id_categoria',$id_categoria);
+    $productes=$this->db->get('productes');
+    return $productes->result();
+}
+
   public function newProducte($params){
     $this->db->insert('productes',$params);
         return $this->db->insert_id();

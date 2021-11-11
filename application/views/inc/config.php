@@ -10,7 +10,7 @@
 
 /* Template variables */
 $template = array(
-    'name'              => 'ProUI',
+    'name'              => 'Eat IT',
     'version'           => '3.6',
     'author'            => 'pixelcave',
     'robots'            => 'noindex, nofollow',
