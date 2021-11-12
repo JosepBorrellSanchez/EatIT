@@ -24,10 +24,6 @@ class Botiga extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('Producte_model');
-    $this->load->model('Category_model');
-    $this->load->helper('url');
-    $this->load->library('cart');
   }
 
   public function index()

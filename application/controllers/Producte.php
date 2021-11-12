@@ -31,41 +31,62 @@ class Producte extends CI_Controller
   public function index()
   {
     // 
-    $data['user'] = $this->session->userdata('logged_in');
-    $data['productes'] = $this->Producte_model->getAllProductes();
-   // die();
-    $this->load->view('page_ecom_products', $data);
+    if($this->session->userdata('logged_in'))
+    {
+      $data['user'] = $this->session->userdata('logged_in');
+      $data['productes'] = $this->Producte_model->getAllProductes();
+    // die();
+      $this->load->view('page_ecom_products', $data);
+    }
+    else
+    {
+        $this->form_validation->set_message('verifica','Contraseña incorrecta');
+            redirect('login');
+    }
+
+
   }
 
   public function add(){
-    $data['user'] = $this->session->userdata('logged_in');
-    $data['categories'] = $this->Category_model->get_all_categories();
-    if(isset($_POST) && count($_POST) > 0)     
-        {   
-            $params = array(
-              'actiu' => $this->input->post('actiu'),
-              'nom' => $this->input->post('nom'),
-              'preu' => $this->input->post('preu'),
-              'id_categoria' => $this->input->post('id_categoria'),
-              'data_creacio' => date("Y-m-d"),
-              'sku' => $this->input->post('sku'),
-              'descripcio' => $this->input->post('descripcio'),
-              'imatge' => $this->input->post('imatge'),//$this->input->post('imatge'),
-              'miniatura' => $this->input->post('miniatura')//$this->input->post('miniatura'),
-            );
-            
-            $producte_id = $this->Producte_model->newProducte($params);
-            redirect('producte/index');
-        }
-        else
-        {            
-            $data['_view'] = 'producte/add';
-            $this->load->view('page_ecom_product_add', $data);
-        }
+
+    if($this->session->userdata('logged_in'))
+    {
+
+      $data['user'] = $this->session->userdata('logged_in');
+      $data['categories'] = $this->Category_model->get_all_categories();
+      if(isset($_POST) && count($_POST) > 0)     
+          {   
+              $params = array(
+                'actiu' => $this->input->post('actiu'),
+                'nom' => $this->input->post('nom'),
+                'preu' => $this->input->post('preu'),
+                'id_categoria' => $this->input->post('id_categoria'),
+                'data_creacio' => date("Y-m-d"),
+                'sku' => $this->input->post('sku'),
+                'descripcio' => $this->input->post('descripcio'),
+                'imatge' => $this->input->post('imatge'),//$this->input->post('imatge'),
+                'miniatura' => $this->input->post('miniatura')//$this->input->post('miniatura'),
+              );
+              
+              $producte_id = $this->Producte_model->newProducte($params);
+              redirect('producte/index');
+          }
+          else
+          {            
+              $data['_view'] = 'producte/add';
+              $this->load->view('page_ecom_product_add', $data);
+          }
+    }
+    else
+    {
+        $this->form_validation->set_message('verifica','Contraseña incorrecta');
+            redirect('login');
+    }        
   }
 
   function edit($id)
     {   
+      if($this->session->userdata('logged_in')) {
         $data['user'] = $this->session->userdata('logged_in');
         $data['producte'] = $this->Producte_model->get_producte($id);
         $data['categories'] = $this->Category_model->get_all_categories();
@@ -102,6 +123,12 @@ class Producte extends CI_Controller
         }
         else
             show_error('El producte no existeix :( .');
+        } 
+      else
+      {
+        $this->form_validation->set_message('verifica','Contraseña incorrecta');
+        redirect('login');
+      } 
     } 
 
     /*
@@ -109,6 +136,7 @@ class Producte extends CI_Controller
      */
     function remove($id)
     {
+      if($this->session->userdata('logged_in')) {
         $producte = $this->Producte_model->get_producte($id);
 
         // check if the producte exists before trying to delete it
@@ -119,13 +147,13 @@ class Producte extends CI_Controller
         }
         else
             show_error('The producte you are trying to delete does not exist.');
+      }
+    else
+    {
+        $this->form_validation->set_message('verifica','Contraseña incorrecta');
+            redirect('login');
     }
-
-
-
-
+  }
 }
-
-
 /* End of file Productes.php */
 /* Location: ./application/controllers/Productes.php */

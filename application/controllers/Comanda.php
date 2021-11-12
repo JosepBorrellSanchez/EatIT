@@ -22,8 +22,6 @@ class Comanda extends CI_Controller{
   function __construct()
   {
       parent::__construct();
-      $this->load->model('Comanda_model');
-      $this->load->model('Detallscomanda_model');
       $this->load->library('cart');
   } 
 
@@ -32,17 +30,28 @@ class Comanda extends CI_Controller{
    */
   function index()
   {
-      $data['comandes'] = $this->Comanda_model->get_all_comandes();
-      $data['user'] = $this->session->userdata('logged_in');
-      $data['_view'] = 'comanda/index';
-      $this->load->view('page_ecom_orders',$data);
+    if($this->session->userdata('logged_in'))
+    {
+        $data['comandes'] = $this->Comanda_model->get_all_comandes();
+        $data['user'] = $this->session->userdata('logged_in');
+        $data['_view'] = 'comanda/index';
+        $this->load->view('page_ecom_orders',$data);
+    }
+    else
+    {
+        $this->form_validation->set_message('verifica','Contraseña incorrecta');
+            redirect('login');
+    }
+      
   }
 
   /*
    * Adding a new comanda
    */
   function add()
-  {   
+  { 
+    if($this->session->userdata('logged_in'))
+    {  
       if(isset($_POST) && count($_POST) > 0)     
       {   
           $params = array(
@@ -68,6 +77,12 @@ class Comanda extends CI_Controller{
           $data['_view'] = 'comanda/add';
           $this->load->view('layouts/main',$data);
       }
+    }
+    else
+    {
+        $this->form_validation->set_message('verifica','Contraseña incorrecta');
+            redirect('login');
+    }
   }  
 
   /*
@@ -75,6 +90,8 @@ class Comanda extends CI_Controller{
    */
   function veure($id)
   {   
+    if($this->session->userdata('logged_in'))
+    { 
       // check if the comanda exists before trying to edit it
       $data['comanda'] = $this->Comanda_model->get_comanda($id);
       $data['detallscomanda'] = $this->Detallscomanda_model->get_detallscomanda($id);
@@ -89,6 +106,12 @@ class Comanda extends CI_Controller{
       }
       else
           show_error('The comanda you are trying to edit does not exist.');
+    }
+     else
+     {
+         $this->form_validation->set_message('verifica','Contraseña incorrecta');
+          redirect('login');
+     }
   } 
 
   /*
@@ -96,6 +119,8 @@ class Comanda extends CI_Controller{
    */
   function remove($id)
   {
+    if($this->session->userdata('logged_in'))
+    { 
       $comanda = $this->Comanda_model->get_comanda($id);
 
       // check if the comanda exists before trying to delete it
@@ -107,8 +132,14 @@ class Comanda extends CI_Controller{
       else
           show_error('The comanda you are trying to delete does not exist.');
   }
-  
+  else
+     {
+         $this->form_validation->set_message('verifica','Contraseña incorrecta');
+          redirect('login');
+     }
+
 }
+
 
 
 /* End of file Comanda.php */

@@ -14,8 +14,8 @@ $template = array(
     'version'           => '3.6',
     'author'            => 'pixelcave',
     'robots'            => 'noindex, nofollow',
-    'title'             => 'ProUI - Responsive Bootstrap Admin Template',
-    'description'       => 'ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.',
+    'title'             => 'Eat IT',
+    'description'       => 'Eat IT',
     // true                     enable page preloader
     // false                    disable page preloader
     'page_preloader'    => false,

@@ -15,7 +15,7 @@
                 <div class="widget-extra themed-background">
                     <h4 class="widget-content-light"><strong>Comandes </strong>pendents</h4>
                 </div>
-                <div class="widget-extra-full"><span class="h2 animation-expandOpen">N/A</span></div>
+                <div class="widget-extra-full"><span class="h2 animation-expandOpen"><?php echo count($comandes)?></span></div>
             </a>
         </div>
         <div class="col-sm-6 col-lg-3">
