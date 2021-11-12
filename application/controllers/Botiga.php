@@ -29,7 +29,7 @@ class Botiga extends CI_Controller
   public function index()
   {
     
-    $data['productes'] = $this->Producte_model->getAllProductes();
+    $data['productes'] = $this->Producte_model->getAllProductesActius();
     $data['categories'] = $this->Category_model->get_all_categories();
     $this->load->view('shop-2', $data);
   }

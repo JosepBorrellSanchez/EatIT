@@ -37,9 +37,15 @@ class Producte_model extends CI_Model {
       $productes=$this->db->get('productes');
       return $productes->result();
   }
+  public function getAllProductesActius(){
+    $this->db->where('actiu',1);
+    $productes=$this->db->get('productes');
+    return $productes->result();
+}
 
   public function getAllProductesCategoria($id_categoria){
     $this->db->where('id_categoria',$id_categoria);
+    $this->db->where('actiu',1);
     $productes=$this->db->get('productes');
     return $productes->result();
 }
