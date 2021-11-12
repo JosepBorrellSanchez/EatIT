@@ -76,8 +76,8 @@
             ?>
                 <?php foreach($productes as $producte){ ?>
                 <tr>
-                    <td class="text-center"><a href="page_ecom_product_edit.php"><strong><?php echo $producte->id; ?></strong></a></td>
-                    <td><a href="page_ecom_product_edit.php"><?php echo $producte->nom; ?></a></td>
+                    <td class="text-center"><strong><?php echo $producte->id; ?></strong></a></td>
+                    <td><?php echo $producte->nom; ?></a></td>
                     <td class="text-right hidden-xs"><strong><?php echo $producte->preu; ?></strong></td>
                     <td class="text-right hidden-xs"><strong><?php echo $labels[$producte->id_categoria]['text']; ?></strong></td>
                     <td class="text-right hidden-xs"><img src=<?php echo $producte->miniatura; ?> alt="HTML tutorial" style="width:90px;height:90px;"></td>

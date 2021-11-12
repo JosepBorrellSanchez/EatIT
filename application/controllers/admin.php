@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  *
- * Controller Principal
+ * Controller admin
  *
  * This controller for ...
  *
@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Principal extends CI_Controller
+class Admin extends CI_Controller
 {
     
   public function __construct()
@@ -55,5 +55,5 @@ class Principal extends CI_Controller
 }
 
 
-/* End of file Principal.php */
-/* Location: ./application/controllers/Principal.php */
+/* End of file admin.php */
+/* Location: ./application/controllers/admin.php */

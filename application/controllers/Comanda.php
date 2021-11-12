@@ -50,8 +50,6 @@ class Comanda extends CI_Controller{
    */
   function add()
   { 
-    if($this->session->userdata('logged_in'))
-    {  
       if(isset($_POST) && count($_POST) > 0)     
       {   
           $params = array(
@@ -77,12 +75,6 @@ class Comanda extends CI_Controller{
           $data['_view'] = 'comanda/add';
           $this->load->view('layouts/main',$data);
       }
-    }
-    else
-    {
-        $this->form_validation->set_message('verifica','Contraseña incorrecta');
-            redirect('login');
-    }
   }  
 
   /*
@@ -141,6 +133,6 @@ class Comanda extends CI_Controller{
 }
 
 
-
+}
 /* End of file Comanda.php */
 /* Location: ./application/controllers/Comanda.php */

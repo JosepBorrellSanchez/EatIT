@@ -29,7 +29,7 @@ class Login extends CI_Controller
         else
         {
           die();
-            redirect('justplay/index');
+            redirect('eatit/index');
         }
   }
 
