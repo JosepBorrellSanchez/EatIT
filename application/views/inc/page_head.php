@@ -357,7 +357,7 @@
                     <!-- Sidebar Navigation -->
                     <ul class="sidebar-nav">
                     <a href=<?php echo site_url('/comanda') ?>><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Comandes</span></a>
-                    <a href=<?php echo site_url('/comanda') ?>><i class="gi gi-shopping_bag sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Productes</span></a>
+                    <a href=<?php echo site_url('/producte') ?>><i class="gi gi-shopping_bag sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Productes</span></a>
 
                     </ul>
                     <!-- END Sidebar Navigation -->

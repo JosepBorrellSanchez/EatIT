@@ -70,15 +70,15 @@
             </thead>
             <tbody>
             <?php
-                $labels['1']['text']   = "Pizza";
-                $labels['2']['text']   = "Burguer";
-                $labels['3']['text']   = "Kebab";
+                $labels['1']['text']   = "Pizzes";
+                $labels['2']['text']   = "Complements";
+                $labels['3']['text']   = "Begudes";
             ?>
                 <?php foreach($productes as $producte){ ?>
                 <tr>
                     <td class="text-center"><strong><?php echo $producte->id; ?></strong></a></td>
                     <td><?php echo $producte->nom; ?></a></td>
-                    <td class="text-right hidden-xs"><strong><?php echo $producte->preu; ?></strong></td>
+                    <td class="text-right hidden-xs"><strong><?php echo $producte->preu; ?> €</strong></td>
                     <td class="text-right hidden-xs"><strong><?php echo $labels[$producte->id_categoria]['text']; ?></strong></td>
                     <td class="text-right hidden-xs"><img src=<?php echo $producte->miniatura; ?> alt="HTML tutorial" style="width:90px;height:90px;"></td>
                     <td class="hidden-xs text-center"><?php echo $producte->data_creacio; ?></td>
@@ -86,7 +86,7 @@
                     <td class="text-center">
                         <div class="btn-group btn-group-xs">
                             <a href="<?php echo site_url('producte/edit/'.$producte->id); ?>" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                            <a href="<?php echo site_url('producte/remove/'.$producte->id); ?>" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="<?php echo site_url('producte/remove/'.$producte->id); ?>" onclick="return confirm('Estas segur que vols eliminar aquest producte?');" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
                         </div>
                     </td>
                 </tr>

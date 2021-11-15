@@ -61,9 +61,6 @@ class Botiga extends CI_Controller
 
    $this->cart->insert($data);
    
-   //var_dump($this->cart->contents());
-   //$this->cart->destroy();
-   //die();
    redirect('botiga');
   }
 
