@@ -21,46 +21,17 @@
 
                 <!-- General Data Content -->
                 <?php $attributes = array('class' => 'form-horizontal form-bordered'); ?>
-                <?php echo form_open('producte/add', $attributes); ?>
+                <?php echo form_open('categoria/add', $attributes); ?>
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="product-name">Nom</label>
                         <div class="col-md-9">
-                        <input type="text" name="nom" class="form-control" placeholder="Nom del producte" value="<?php echo $this->input->post('nom'); ?>" />
+                        <input type="text" name="nom" class="form-control" placeholder="Nom de la categoria" value="<?php echo $this->input->post('nom'); ?>" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="product-short-description">Descripció</label>
                         <div class="col-md-9">
                             <textarea id="descripcio" name="descripcio" class="form-control" rows="3"><<?php echo $this->input->post('descripcio'); ?>/textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label" for="product-category">Categoria</label>
-                        <div class="col-md-8">
-                            <!-- Chosen plugin (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://harvesthq.github.io/chosen/ -->
-                            <select id="id_categoria" name="id_categoria" class="select-chosen" data-placeholder="Tria la categoria..." style="width: 250px;">
-                                <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
-                                
-                                <?php foreach($categories as $categoria){ ?>
-
-                                <option value=<?php echo $categoria->id;?>><?php echo $categoria->nom?></option>
-                                <?php }?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label" for="product-price">Preu</label>
-                        <div class="col-md-8">
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-eur"></i></div>
-                                <input type="text" id="preu" name="preu" class="form-control" placeholder="0,00">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Sku</label>
-                        <div class="col-md-9">
-                            <input type="text" id="sku" name="sku" class="form-control" placeholder="SKU">
                         </div>
                     </div>
                     <div class="form-group">
@@ -75,17 +46,9 @@
                             <input type="text" id="miniatura" name="miniatura" class="form-control" placeholder="URL de la miniatura">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Actiu?</label>
-                        <div class="col-md-9">
-                            <label class="switch switch-primary">
-                                <input type="checkbox" id="actiu" name="actiu" checked><span></span>
-                            </label>
-                        </div>
-                    </div>
                     <div class="form-group form-actions">
                         <div class="col-md-9 col-md-offset-3">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Afegeix</button>
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Afegir</button>
                             <button type="Esborrar" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Esborrar</button>
                         </div>
                     </div>

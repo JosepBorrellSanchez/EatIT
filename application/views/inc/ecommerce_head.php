@@ -8,6 +8,9 @@
                 <a href=<?php echo site_url('comanda/');?>><i class="gi gi-shop_window"></i> Comandes</a>
             </li>
             <li>
+                <a href=<?php echo site_url('categoria/');?>><i class="gi gi-folder_open"></i> Categories</a>
+            </li>
+            <li>
                 <a href=<?php echo site_url('producte/');?>><i class="gi gi-shopping_bag"></i> Productes</a>
             </li>
             <li>

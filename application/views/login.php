@@ -69,7 +69,7 @@
             </div>
             <div class="form-group form-actions">
                 <div class="col-xs-12 text-right">
-                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Reset Password</button>
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Esborrar Password</button>
                 </div>
             </div>
             <div class="form-group">

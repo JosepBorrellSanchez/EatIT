@@ -95,7 +95,7 @@
                     <div class="form-group form-actions">
                         <div class="col-md-9 col-md-offset-3">
                             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Guardar</button>
-                            <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset</button>
+                            <button type="Esborrar" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Esborrar</button>
                         </div>
                     </div>
                 </form>

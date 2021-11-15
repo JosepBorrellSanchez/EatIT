@@ -83,7 +83,7 @@
                     <div class="form-group form-actions">
                         <div class="col-xs-12 text-right">
                             <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-sm btn-primary">Save Changes</button>
+                            <button type="submit" class="btn btn-sm btn-primary">Afegeix Changes</button>
                         </div>
                     </div>
                 </form>

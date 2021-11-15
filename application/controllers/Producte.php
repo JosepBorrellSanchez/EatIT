@@ -146,7 +146,7 @@ class Producte extends CI_Controller
             redirect('producte/index');
         }
         else
-            show_error('The producte you are trying to delete does not exist.');
+            show_error('El producte no existeix :( ');
       }
     else
     {
