@@ -30,18 +30,16 @@ class Producte extends CI_Controller
 
   public function index()
   {
-    // 
     if($this->session->userdata('logged_in'))
     {
       $data['user'] = $this->session->userdata('logged_in');
       $data['productes'] = $this->Producte_model->getAllProductes();
-    // die();
       $this->load->view('page_ecom_products', $data);
     }
     else
     {
         $this->form_validation->set_message('verifica','Contraseña incorrecta');
-            redirect('login');
+        redirect('login');
     }
 
 

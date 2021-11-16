@@ -38,9 +38,6 @@ class Login extends CI_Controller
         $email = $this->input->post('login-email');
         $password = $this->input->post('login-password');
 
-        var_dump($password);
-        //die();
-        //$password_hash = password_hash($password, PASSWORD_BCRYPT);
         if($this->login_model->index($email, $password))
         {
             redirect('Comanda');

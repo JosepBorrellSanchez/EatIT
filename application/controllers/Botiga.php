@@ -57,10 +57,7 @@ class Botiga extends CI_Controller
       'name'    => $producte['nom'],
       'sku'     => $producte['sku'],
     );
-    
-
    $this->cart->insert($data);
-   
    redirect('botiga');
   }
 
